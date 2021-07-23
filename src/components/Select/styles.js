@@ -15,6 +15,7 @@ export const Container = styled.div`
         font-size: 17px;
         border-radius: 4px;
         opacity: 50%;
+        margin-bottom: 10px;
     }
     label{
         /* font-weight: bold; */

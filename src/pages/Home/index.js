@@ -22,6 +22,8 @@ import ImgWatchdogs from "../../assets/watchdogs.jpg";
 import ImgBatman from "../../assets/batman.jpg";
 import { useState } from "react";
 
+// Função com Modal onde traria os detalhes do Produto
+// No caso se tivesse vindo de uma API, consumindo cada jogo teria sua descrição e plataformas
 function Details() {
 
   return (
@@ -35,6 +37,7 @@ function Details() {
   )
 }
 
+// Função com Modal onde traria informações na hora de efetuar a compra do Produto
 function Purchase() {
 
   return (
@@ -42,22 +45,26 @@ function Purchase() {
       <h2>Preço:</h2>
       <h5>R$ 99,99</h5>
         <h2>Lojas com o Produto disponível:</h2>
+{/* Select com lojas que teria o jogo disponível, e ao clicar traria a localização
+através da API do google maps, mas precisa de uma conta na Google Cloud. */}
       <Select>
       <option value="">Selecione a Loja Desejada</option>
                   <option value="">Loja tambóre</option>
                   <option value="">Loja União</option>
                   <option value="">Loja Iguatemi</option>
       </Select>
+      <button>Finalizar Compra</button>
     </ContainerDetails>
   )
 }
    
-function HomeAdmin() {
+function Home() {
   const [showDetails, setShowDetails] = useState(false);
   const [showPurchase, setShowPurchase] = useState(false);
 
   return (
     <>
+    {/* chamando modal de detalhes do produto */}
     {showDetails && (
       <Modal
         handleClose={() => setShowDetails(false)}
@@ -65,6 +72,8 @@ function HomeAdmin() {
           <Details />
         </Modal>
     )}
+
+    {/* chamando modal de valores, lojas do produto */}
     {showPurchase && (
       <Modal
         handleClose={() => setShowPurchase(false)}
@@ -72,7 +81,7 @@ function HomeAdmin() {
           <Purchase />
         </Modal>
     )}
-    <Header />Purchase
+    <Header />
       <Container>
         <ContainerHome>
           <h3>Bem Vindo a Smart Games!</h3>
@@ -132,8 +141,7 @@ function HomeAdmin() {
                 <button onClick={() => setShowPurchase(true)}>Comprar</button>
                 <button onClick={() => setShowDetails(true)}>Ver Mais</button>
               </ItemMenu>
-            </ContainerColuna>
-            
+            </ContainerColuna>           
           </ContainerItensMenu>
         </ContainerHome>
       </Container>
@@ -142,4 +150,4 @@ function HomeAdmin() {
   );
 }
 
-export default HomeAdmin;
+export default Home;

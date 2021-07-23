@@ -49,15 +49,6 @@ button{
     border: 1px solid var(--light);
 
     cursor: pointer;
-    transition: .2s ease-in-out;
-
-    :hover{
-        background-color: var(--light);
-    }
-
-    :active{
-        transform: scale(0.95);
-    }
 }
 
 `;
